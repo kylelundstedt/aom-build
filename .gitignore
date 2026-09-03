@@ -21,3 +21,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Doc-site build output (provision-docsite / render-site)
+_site/
+.docsite/
