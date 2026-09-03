@@ -1,6 +1,6 @@
 # ADR 0002: Contract-First Adapters for Evolving Agent Tools
 
-- **Status:** Proposed
+- **Status:** Superseded in scope by ADR 0004 (retained as Phase 2 reference)
 - **Date:** 2026-09-03
 
 ## Context

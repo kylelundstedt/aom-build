@@ -18,14 +18,15 @@ When they differ, the Architecture Contract constrains the pilot plan.
 
 ## Bootstrap artifacts
 
+- [`docs/adr/0004-pilot-first-scope-correction.md`](docs/adr/0004-pilot-first-scope-correction.md) — **governing scope decision**: pilots run on native tool behavior; contracts are reference only.
 - [`docs/implementation-plan.md`](docs/implementation-plan.md) — phased execution plan and repository layout.
 - [`docs/backlog.md`](docs/backlog.md) — concrete backlog with dependencies and acceptance criteria.
 - [`docs/decisions-required.md`](docs/decisions-required.md) — decisions and security questions requiring Kyle.
 - [`docs/research/current-capabilities-2026-09-03.md`](docs/research/current-capabilities-2026-09-03.md) — verified local/upstream capability snapshot.
-- [`contracts/`](contracts/) — versioned integration schemas and interface contracts.
-- [`config/`](config/) — initial routing, authority, and security policies.
+- [`contracts/`](contracts/) — **reference material** (possible Phase 2 hardening), not pilot requirements.
+- [`config/`](config/) — initial routing policy and security baseline.
 - [`pilots/`](pilots/) — pilot-specific instructions, checklists, and evaluation cases.
-- [`validation/`](validation/) — evaluation rubric and synthetic test catalog.
+- [`validation/`](validation/) — evaluation rubric and failure catalog (observational).
 
 ## State separation
 
