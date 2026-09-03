@@ -1,0 +1,10 @@
+Shelley client - interact with Shelley conversations
+
+Usage: shelley client <subcommand> [flags]
+
+Subcommands:
+  chat      Send a prompt; creates a new conversation unless -c is given
+  read      Print messages of a conversation as JSON lines (-wait blocks for new messages)
+  list      List recent conversations as JSON lines
+  search    Search conversations by query, printed as JSON lines
+  help      Print this help text

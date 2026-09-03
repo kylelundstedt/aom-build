@@ -49,8 +49,11 @@ only after the unresolved decisions are reviewed and authorized.
 ## Validate artifacts
 
 ```bash
-./scripts/validate-contracts
+./scripts/validate-contracts   # schemas + examples + policy JSON
+uv run pytest                  # Phase A adapter test suite
 ```
 
-The validator uses `uv` to run a pinned `jsonschema` package and validates every
-contract example plus the repository JSON configuration.
+Phase A adapters live in `src/aom/` (contracts validation, worker-routing
+engine, Shelley worker adapter, delegation trace/evidence gating, management
+snapshot generator). They are fixture-driven: nothing talks to a live Shelley,
+Hermes, Entire, or Product system until Phase B/C authorization.

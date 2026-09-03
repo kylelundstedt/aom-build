@@ -8,7 +8,7 @@ module so schema drift fails loudly in one place.
 from __future__ import annotations
 
 import json
-from functools import lru_cache
+from functools import cache
 from pathlib import Path
 from typing import Any
 
@@ -32,7 +32,7 @@ def schemas_dir() -> Path:
     return repo_root() / "contracts" / "schemas"
 
 
-@lru_cache(maxsize=None)
+@cache
 def load_schema(contract: str) -> dict[str, Any]:
     """Load a schema by contract key, e.g. ``routing-decision.v1``."""
     path = schemas_dir() / f"{contract}.schema.json"
@@ -43,7 +43,7 @@ def load_schema(contract: str) -> dict[str, Any]:
     return schema
 
 
-@lru_cache(maxsize=None)
+@cache
 def _validator(contract: str) -> Draft202012Validator:
     return Draft202012Validator(load_schema(contract), format_checker=FormatChecker())
 

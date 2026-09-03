@@ -1,0 +1,19 @@
+Shelley client - interact with Shelley conversations
+
+Usage: shelley client <subcommand> [flags]
+
+Subcommands:
+  chat      Send a prompt; creates a new conversation unless -c is given
+  read      Print messages of a conversation as JSON lines (-wait blocks for new messages)
+  list      List recent conversations as JSON lines
+  search    Search conversations by query, printed as JSON lines
+  archive   Archive a conversation by ID
+  help      Print this help text
+
+Examples:
+  shelley client chat -p "hello" -model gpt-5.6-luna -cwd /home/exedev/work
+  shelley client chat -c 8e7c1a2b -p "follow up"
+  shelley client read -wait 8e7c1a2b
+  shelley client list -limit 20 -q aom
+  shelley client search -limit 10 "[AOM-DELEGATION:x:1]"
+  shelley client archive 8e7c1a2b
