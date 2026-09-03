@@ -1,6 +1,27 @@
 # Decisions and Questions Requiring Kyle
 
-No external pilot changes should begin until the P0 decisions are resolved.
+## Resolution log
+
+**2026-09-03 — Kyle resolved the P0 decisions as follows:**
+
+| ID | Resolution |
+| --- | --- |
+| D-001 | **Resolved:** canonical ID is `freddie-sflld`. All `freddie-sflpd` references in the architecture documents are typos for the Freddie product (note: `fannie-sflpd` remains a distinct product name). |
+| D-002 | **Resolved:** separate Personal Hermes VM and separate `freddie-sflld` Product VM. |
+| D-003 | **Resolved (default accepted):** operator-only ingress via Scarf/ScarfGo over authenticated SSH/private control path. |
+| D-004 | **Resolved (default accepted):** human approval required for pilot publication. |
+| D-005 | **Resolved (default accepted):** validate Scarf 3.0.1 against Hermes 0.21.0; otherwise pin Hermes 0.20.4. |
+| D-006 | **Resolved (default accepted):** one AgentMemory instance/data directory per pilot; no cross-pilot sharing. |
+| D-007 | **Resolved (default accepted):** BM25-only or local embeddings; no external memory compression initially. |
+| D-008 | **Resolved (default accepted):** Entire 0.10.1 + `entire-agent-shelley` 0.1.3 qualified pair. |
+| D-009 | **Open:** first Freddie improvement — selected after orientation. |
+| D-010 | **Open:** pilot duration and thresholds — to be set before deployment. |
+
+Still unresolved: Fable model identity, self-hosted Qwen endpoint, and the
+model-routing/data-egress questions below. See ADR 0003.
+
+No external pilot changes should begin until the remaining open items are
+resolved.
 
 ## P0 decisions
 

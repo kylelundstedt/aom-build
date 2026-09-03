@@ -11,8 +11,8 @@ pilot; **P2** improves evaluation or operations but is not a launch blocker.
 | ID | Pri | Location | Work | Depends on | Acceptance |
 | --- | --- | --- | --- | --- | --- |
 | C-001 | P0 | AOM-BUILD | Confirm the state-authority matrix and ADR 0001 | Kyle review | Every state question has one authority; no overlapping publication authority |
-| C-002 | P0 | KYLE | Confirm canonical Product ID (`freddie-sflld` proposed) and any aliases | none | One stable ID is used in configs, traces, WAP, and evaluation |
-| C-003 | P0 | KYLE | Approve trust topology and allowed operator origins for both pilots | C-001 | Product Hermes has no externally prompted route; Personal and Freddie state are isolated |
+| C-002 | P0 | KYLE | ~~Confirm canonical Product ID~~ **Resolved 2026-09-03:** `freddie-sflld`; `freddie-sflpd` occurrences are typos (ADR 0003) | none | One stable ID is used in configs, traces, WAP, and evaluation |
+| C-003 | P0 | KYLE | ~~Approve trust topology~~ **Resolved 2026-09-03:** separate Personal Hermes VM and Product VM; operator-only ingress (ADR 0003) | C-001 | Product Hermes has no externally prompted route; Personal and Freddie state are isolated |
 | C-004 | P0 | AOM-BUILD | Finalize admission, routing, delegation, memory, evidence, publication, and management schemas | C-001 | Schemas validate examples and encode authority/classification fields |
 | C-005 | P0 | AOM-BUILD | Implement Shelley adapter capability probe and fixture-based parser | C-004 | Experimental CLI drift fails closed; raw CLI JSON is not exposed to callers |
 | C-006 | P0 | AOM-BUILD | Implement idempotent-at-AOM-layer worker creation/reconciliation | C-005 | Ambiguous create exposes duplicate risk and can reconcile by delegation marker |

@@ -1,0 +1,28 @@
+[project]
+name = "aom-adapters"
+version = "0.1.0"
+description = "Phase A AOM contract adapters (fixture-driven; no external systems)"
+requires-python = ">=3.12"
+dependencies = [
+    "jsonschema>=4.23,<5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aom"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
