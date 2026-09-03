@@ -1,0 +1,38 @@
+{
+  "schema": "iv.aom/delegation-attempt/v1",
+  "delegation_id": "delegate-FREDDIE-184-implement",
+  "attempt": 1,
+  "task_ref": {"domain": "work", "id": "FREDDIE-184", "revision": 7},
+  "accountable_agent_id": "freddie-product-hermes",
+  "routing_decision_ref": {"domain": "routing", "id": "route-FREDDIE-184-v1", "digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"},
+  "stage_id": "implement",
+  "workspace": {
+    "vm": "freddie-sflld",
+    "path": "/home/exedev/freddie-sflld-worktrees/FREDDIE-184",
+    "mode": "isolated_worktree"
+  },
+  "constraints": {
+    "classification": "confidential",
+    "data_locality": "hosted_allowed",
+    "network": "restricted",
+    "side_effects": "repository_write",
+    "deadline": "2026-09-04T18:00:00Z"
+  },
+  "idempotency_key": "FREDDIE-184:implement:1",
+  "worker": {
+    "backend": "shelley",
+    "run_id": "run-FREDDIE-184-implement-1",
+    "conversation_id": "8e7c-example",
+    "requested_role": "implementation",
+    "requested_model": "luna",
+    "actual_model": "gpt-5.6-luna",
+    "adapter_version": "0.1.0",
+    "shelley_version": "0.959.914757635"
+  },
+  "state": "running",
+  "adapter_revision": 3,
+  "warnings": [],
+  "created_at": "2026-09-03T14:02:00Z",
+  "updated_at": "2026-09-03T14:03:00Z",
+  "producer": {"id": "shelley-worker-adapter", "version": "0.1.0"}
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "iv.aom/state-authorities/v1",
+  "version": 1,
+  "authorities": {
+    "product_source": {
+      "authority": "product_repo_and_wap",
+      "answers": ["canonical_product_facts", "candidate_state", "published_state"]
+    },
+    "semantic_memory": {
+      "authority": "agentmemory",
+      "answers": ["relevant_learned_context"],
+      "forbidden": ["published_state", "authorization", "task_status"]
+    },
+    "current_work": {
+      "authority": "hermes_kanban",
+      "answers": ["task_status", "ownership", "blockers", "review_state"]
+    },
+    "historical_evidence": {
+      "authority": "entire",
+      "answers": ["what_happened", "session_evidence", "checkpoint_evidence"],
+      "forbidden": ["current_published_state", "current_task_status"]
+    },
+    "presentation": {
+      "authority": "none",
+      "provider": "scarf",
+      "answers": ["projected_status_and_navigation"],
+      "forbidden": ["authoritative_transition", "published_state"]
+    }
+  }
+}

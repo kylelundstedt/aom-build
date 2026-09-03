@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "iv.aom/admission-context/v1",
+  "title": "AOM Admission Context v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "request_id", "audience", "authenticated_principal", "immediate_caller", "origin_chain", "content_class", "policy", "decision", "created_at", "producer"],
+  "properties": {
+    "schema": {"const": "iv.aom/admission-context/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "audience": {"type": "string", "minLength": 1},
+    "authenticated_principal": {"type": "string", "minLength": 1},
+    "immediate_caller": {"type": "string", "minLength": 1},
+    "origin_chain": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["principal", "channel", "trust_zone"],
+        "properties": {
+          "principal": {"type": "string", "minLength": 1},
+          "channel": {"type": "string", "minLength": 1},
+          "trust_zone": {"enum": ["internal_control", "internal_worker", "external_untrusted"]}
+        }
+      }
+    },
+    "content_class": {"enum": ["internal_operator_instruction", "internal_agent_instruction", "worker_event", "untrusted_input"]},
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "digest"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "integer", "minimum": 1},
+        "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "decision": {"enum": ["allow", "deny"]},
+    "reason_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "created_at": {"type": "string", "format": "date-time"},
+    "producer": {"$ref": "#/$defs/producer"}
+  },
+  "$defs": {
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

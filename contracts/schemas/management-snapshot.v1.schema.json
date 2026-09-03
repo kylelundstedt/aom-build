@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "iv.aom/management-snapshot/v1",
+  "title": "AOM Management Snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "snapshot_id", "authority", "generated_at", "stale_after", "source_revisions", "attention_items", "work_summary", "active_delegations", "recent_publications", "producer"],
+  "properties": {
+    "schema": {"const": "iv.aom/management-snapshot/v1"},
+    "snapshot_id": {"type": "string", "minLength": 1},
+    "authority": {"const": "none_projection_only"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "stale_after": {"type": "string", "format": "date-time"},
+    "source_revisions": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": ["string", "integer"]}
+    },
+    "attention_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "title", "source_ref"],
+        "properties": {
+          "severity": {"enum": ["info", "warning", "critical"]},
+          "title": {"type": "string"},
+          "detail": {"type": "string"},
+          "source_ref": {"$ref": "#/$defs/ref"},
+          "decision_required": {"type": "boolean"}
+        }
+      }
+    },
+    "work_summary": {"type": "array", "items": {"type": "object"}},
+    "active_delegations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["task_ref", "run_ref", "model", "state"],
+        "properties": {
+          "task_ref": {"$ref": "#/$defs/ref"},
+          "run_ref": {"$ref": "#/$defs/ref"},
+          "model": {"type": "string"},
+          "state": {"type": "string"},
+          "deep_link": {"type": "string"}
+        }
+      }
+    },
+    "recent_publications": {"type": "array", "items": {"$ref": "#/$defs/ref"}},
+    "producer": {"$ref": "#/$defs/producer"}
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "id"],
+      "properties": {
+        "domain": {"enum": ["product", "work", "routing", "worker", "memory", "evidence", "audit", "publication"]},
+        "id": {"type": "string"},
+        "version": {"type": "string"},
+        "revision": {"type": ["string", "integer"]},
+        "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "uri": {"type": "string"}
+      }
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {"id": {"type": "string"}, "version": {"type": "string"}}
+    }
+  }
+}

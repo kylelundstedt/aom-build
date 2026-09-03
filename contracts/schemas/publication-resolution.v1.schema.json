@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "iv.aom/publication-resolution/v1",
+  "title": "AOM Publication Resolution v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "product_id", "channel", "version", "manifest_ref", "publication_event_id", "registry_revision", "resolved_at", "producer"],
+  "properties": {
+    "schema": {"const": "iv.aom/publication-resolution/v1"},
+    "product_id": {"type": "string", "minLength": 1},
+    "channel": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "minLength": 1},
+    "manifest_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "digest"],
+      "properties": {
+        "uri": {"type": "string", "minLength": 1},
+        "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "publication_event_id": {"type": "string", "minLength": 1},
+    "registry_revision": {"type": ["integer", "string"]},
+    "published_at": {"type": "string", "format": "date-time"},
+    "resolved_at": {"type": "string", "format": "date-time"},
+    "producer": {"$ref": "#/$defs/producer"}
+  },
+  "$defs": {
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {"id": {"type": "string"}, "version": {"type": "string"}}
+    }
+  }
+}

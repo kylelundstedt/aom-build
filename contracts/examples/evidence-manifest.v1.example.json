@@ -1,0 +1,35 @@
+{
+  "schema": "iv.aom/evidence-manifest/v1",
+  "evidence_id": "evidence-FREDDIE-184",
+  "subject_ref": {"domain": "worker", "id": "run-FREDDIE-184-implement-1"},
+  "provider": "entire",
+  "repository": {
+    "id": "kylelundstedt/freddie-sflld",
+    "worktree": "/home/exedev/freddie-sflld-worktrees/FREDDIE-184",
+    "remote": "origin"
+  },
+  "session_id": "8e7c-example",
+  "checkpoint_id": "abc123def456",
+  "capture_state": "durable",
+  "commits": ["0123456789abcdef0123456789abcdef01234567"],
+  "tree_digest": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "artifacts": [
+    {
+      "media_type": "application/jsonl",
+      "uri": "entire://checkpoint/abc123def456/transcript",
+      "digest": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "classification": "confidential"
+    }
+  ],
+  "captured_at": "2026-09-03T14:05:00Z",
+  "verified_at": "2026-09-03T14:06:00Z",
+  "verified_candidate_ref": {
+    "domain": "product",
+    "id": "candidate:FREDDIE-184",
+    "version": "0123456789abcdef0123456789abcdef01234567",
+    "digest": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+  },
+  "retention_class": "engineering_history",
+  "warnings": [],
+  "producer": {"id": "entire-evidence-adapter", "version": "0.1.0"}
+}

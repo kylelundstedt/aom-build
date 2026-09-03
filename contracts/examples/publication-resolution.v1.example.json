@@ -1,0 +1,15 @@
+{
+  "schema": "iv.aom/publication-resolution/v1",
+  "product_id": "product:freddie-sflld",
+  "channel": "production",
+  "version": "synthetic-93",
+  "manifest_ref": {
+    "uri": "product-registry://freddie-sflld/synthetic-93",
+    "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "publication_event_id": "publish-event-synthetic-93",
+  "registry_revision": 318,
+  "published_at": "2026-09-03T13:00:00Z",
+  "resolved_at": "2026-09-03T14:07:00Z",
+  "producer": {"id": "freddie-wap-adapter", "version": "0.1.0"}
+}

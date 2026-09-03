@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "iv.aom/delegation-attempt/v1",
+  "title": "AOM Delegation Attempt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "delegation_id", "attempt", "task_ref", "accountable_agent_id", "routing_decision_ref", "stage_id", "workspace", "constraints", "idempotency_key", "state", "created_at", "updated_at", "producer"],
+  "properties": {
+    "schema": {"const": "iv.aom/delegation-attempt/v1"},
+    "delegation_id": {"type": "string", "minLength": 1},
+    "attempt": {"type": "integer", "minimum": 1},
+    "task_ref": {"$ref": "#/$defs/ref"},
+    "accountable_agent_id": {"type": "string", "minLength": 1},
+    "routing_decision_ref": {"$ref": "#/$defs/ref"},
+    "stage_id": {"type": "string", "minLength": 1},
+    "workspace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vm", "path", "mode"],
+      "properties": {
+        "vm": {"type": "string"},
+        "path": {"type": "string", "pattern": "^/"},
+        "mode": {"enum": ["read_only", "repository_write", "isolated_worktree"]}
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "data_locality", "network", "side_effects"],
+      "properties": {
+        "classification": {"enum": ["internal", "confidential", "personal", "published"]},
+        "data_locality": {"enum": ["hosted_allowed", "vm_only", "named_endpoint_only"]},
+        "network": {"enum": ["none", "restricted", "standard"]},
+        "side_effects": {"enum": ["read_only", "repository_write", "external_action"]},
+        "deadline": {"type": "string", "format": "date-time"}
+      }
+    },
+    "idempotency_key": {"type": "string", "minLength": 1},
+    "worker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["backend", "run_id", "conversation_id", "requested_role", "actual_model", "adapter_version"],
+      "properties": {
+        "backend": {"const": "shelley"},
+        "run_id": {"type": "string"},
+        "conversation_id": {"type": "string"},
+        "requested_role": {"type": "string"},
+        "requested_model": {"type": "string"},
+        "actual_model": {"type": "string"},
+        "adapter_version": {"type": "string"},
+        "shelley_version": {"type": "string"}
+      }
+    },
+    "state": {"enum": ["pending", "accepted", "running", "completed", "failed", "archived", "unknown", "duplicate_risk"]},
+    "adapter_revision": {"type": "integer", "minimum": 0},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "evidence_ref": {"$ref": "#/$defs/ref"},
+    "candidate_ref": {"$ref": "#/$defs/ref"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "producer": {"$ref": "#/$defs/producer"}
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "id"],
+      "properties": {
+        "domain": {"enum": ["product", "work", "routing", "worker", "memory", "evidence", "audit", "publication"]},
+        "id": {"type": "string"},
+        "version": {"type": "string"},
+        "revision": {"type": ["string", "integer"]},
+        "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "uri": {"type": "string"}
+      }
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {"id": {"type": "string"}, "version": {"type": "string"}}
+    }
+  }
+}

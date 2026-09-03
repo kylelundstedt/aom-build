@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT=$(git rev-parse --show-toplevel)
+cd "$ROOT"
+
+PYFILE=$(mktemp)
+trap 'rm -f "$PYFILE"' EXIT
+cat >"$PYFILE" <<'PY'
+from __future__ import annotations
+import json
+from pathlib import Path
+from jsonschema import Draft202012Validator, FormatChecker
+
+root = Path.cwd()
+schemas = {}
+for path in sorted((root / "contracts" / "schemas").glob("*.schema.json")):
+    data = json.loads(path.read_text())
+    schemas[path.name.replace(".schema.json", "")] = (path, data)
+
+for path, schema in schemas.values():
+    Draft202012Validator.check_schema(schema)
+
+errors = []
+example_count = 0
+for example in sorted((root / "contracts" / "examples").glob("*.example.json")):
+    example_count += 1
+    data = json.loads(example.read_text())
+    key = example.name.replace(".example.json", "")
+    schema_entry = schemas.get(key)
+    if schema_entry is None:
+        errors.append(f"{example}: no schema for {key}")
+        continue
+    schema_path, schema = schema_entry
+    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    for err in sorted(validator.iter_errors(data), key=lambda e: list(e.path)):
+        loc = "/".join(str(p) for p in err.path) or "<root>"
+        errors.append(f"{example} against {schema_path}: {loc}: {err.message}")
+
+# Validate JSON policy/template files for syntax.
+for path in sorted(list((root / "config").glob("*.json")) + list((root / "pilots").rglob("*.json"))):
+    json.loads(path.read_text())
+
+if errors:
+    raise SystemExit("\n".join(errors))
+
+print(f"validated {len(schemas)} schemas and {example_count} examples")
+PY
+
+if python3 - <<'PY' >/dev/null 2>&1
+import jsonschema
+PY
+then
+  python3 "$PYFILE"
+else
+  uv run --with 'jsonschema>=4.23,<5' python "$PYFILE"
+fi

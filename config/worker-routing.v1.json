@@ -1,0 +1,62 @@
+{
+  "schema": "iv.aom/worker-routing-policy/v1",
+  "policy_id": "iv-aom-phase1-routing",
+  "version": 1,
+  "defaults": {
+    "fail_if_no_eligible_worker": true,
+    "record_actual_model": true,
+    "record_fallback_as_deviation": true,
+    "max_parallel_workers": 2
+  },
+  "worker_catalog": {
+    "fable": {
+      "kind": "logical_mapping",
+      "capabilities": ["requirements", "specification", "planning"],
+      "target_model": null,
+      "availability": "unresolved"
+    },
+    "sol": {
+      "kind": "shelley_model",
+      "capabilities": ["critique", "risk_analysis", "independent_review"],
+      "target_model": "gpt-5.6-sol",
+      "availability": "verify_on_target"
+    },
+    "luna": {
+      "kind": "shelley_model",
+      "capabilities": ["implementation", "tool_use", "repository_work"],
+      "target_model": "gpt-5.6-luna",
+      "availability": "verify_on_target"
+    },
+    "qwen_local": {
+      "kind": "named_private_endpoint",
+      "capabilities": ["bounded_parallel_work", "local_processing"],
+      "target_model": null,
+      "availability": "unresolved"
+    }
+  },
+  "strategies": {
+    "read_only_context": {
+      "when": {"side_effects": "read_only", "assurance": ["standard", "high"]},
+      "stages": [
+        {"id": "research", "role": "evidence_retrieval", "eligible": ["luna", "qwen_local"]},
+        {"id": "grounding_review", "role": "source_grounding_review", "eligible": ["sol"], "required_when": {"assurance": "high"}}
+      ]
+    },
+    "high_assurance_product_change": {
+      "when": {"task_type": "product_change", "assurance": ["high", "publication_critical"]},
+      "stages": [
+        {"id": "formulate", "role": "specification", "eligible": ["fable"]},
+        {"id": "critique", "role": "independent_review", "eligible": ["sol"], "independent_of": ["formulate"]},
+        {"id": "implement", "role": "implementation", "eligible": ["luna", "qwen_local"]},
+        {"id": "final_review", "role": "independent_review", "eligible": ["sol"], "independent_of": ["implement"]}
+      ]
+    },
+    "local_sensitive": {
+      "when": {"locality": ["vm_only", "named_endpoint_only"]},
+      "stages": [
+        {"id": "execute", "role": "local_processing", "eligible": ["qwen_local"]}
+      ],
+      "fallback": "deny"
+    }
+  }
+}

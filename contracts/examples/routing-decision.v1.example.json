@@ -1,0 +1,54 @@
+{
+  "schema": "iv.aom/routing-decision/v1",
+  "decision_id": "route-FREDDIE-184-v1",
+  "task_ref": {"domain": "work", "id": "FREDDIE-184", "revision": 7},
+  "policy": {
+    "id": "iv-aom-phase1-routing",
+    "version": 1,
+    "digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "inputs": {
+    "task_type": "product_change",
+    "assurance": "high",
+    "classification": "confidential",
+    "locality": "hosted_allowed",
+    "ambiguity": "high",
+    "parallelizable": true,
+    "budget_class": "standard"
+  },
+  "strategy": {
+    "strategy_id": "high_assurance_product_change",
+    "stages": [
+      {
+        "id": "formulate",
+        "role": "specification",
+        "required_capabilities": ["requirements", "dataset_semantics"],
+        "candidate_workers": ["fable"]
+      },
+      {
+        "id": "critique",
+        "role": "independent_review",
+        "required_capabilities": ["critique", "risk_analysis"],
+        "candidate_workers": ["sol"],
+        "independent_of": ["formulate"]
+      },
+      {
+        "id": "implement",
+        "role": "implementation",
+        "required_capabilities": ["repository_work"],
+        "candidate_workers": ["luna", "qwen_local"],
+        "parallel_group": "implementation"
+      },
+      {
+        "id": "final_review",
+        "role": "independent_review",
+        "required_capabilities": ["review"],
+        "candidate_workers": ["sol"],
+        "independent_of": ["implement"]
+      }
+    ],
+    "fallbacks": [{"when": "worker_unavailable", "action": "record_deviation_and_replan"}]
+  },
+  "decided_at": "2026-09-03T14:01:00Z",
+  "producer": {"id": "worker-routing", "version": "0.1.0"}
+}

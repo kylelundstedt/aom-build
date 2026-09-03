@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "iv.aom/evidence-manifest/v1",
+  "title": "AOM Entire Evidence Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "evidence_id", "subject_ref", "provider", "repository", "session_id", "capture_state", "commits", "artifacts", "captured_at", "retention_class", "producer"],
+  "properties": {
+    "schema": {"const": "iv.aom/evidence-manifest/v1"},
+    "evidence_id": {"type": "string", "minLength": 1},
+    "subject_ref": {"$ref": "#/$defs/ref"},
+    "provider": {"const": "entire"},
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "worktree"],
+      "properties": {
+        "id": {"type": "string"},
+        "worktree": {"type": "string", "pattern": "^/"},
+        "remote": {"type": "string"}
+      }
+    },
+    "session_id": {"type": "string", "minLength": 1},
+    "checkpoint_id": {"type": "string"},
+    "capture_state": {"enum": ["pending", "durable", "unavailable", "mismatched"]},
+    "commits": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]{7,64}$"}},
+    "tree_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["media_type", "uri", "digest", "classification"],
+        "properties": {
+          "media_type": {"type": "string"},
+          "uri": {"type": "string"},
+          "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "classification": {"enum": ["internal", "confidential", "personal", "published"]}
+        }
+      }
+    },
+    "captured_at": {"type": "string", "format": "date-time"},
+    "verified_at": {"type": "string", "format": "date-time"},
+    "verified_candidate_ref": {"$ref": "#/$defs/ref"},
+    "retention_class": {"enum": ["engineering_history", "pilot_evaluation", "temporary"]},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "producer": {"$ref": "#/$defs/producer"}
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "id"],
+      "properties": {
+        "domain": {"enum": ["product", "work", "routing", "worker", "memory", "evidence", "audit", "publication"]},
+        "id": {"type": "string"},
+        "version": {"type": "string"},
+        "revision": {"type": ["string", "integer"]},
+        "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "uri": {"type": "string"}
+      }
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {"id": {"type": "string"}, "version": {"type": "string"}}
+    }
+  }
+}

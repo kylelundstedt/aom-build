@@ -1,0 +1,28 @@
+{
+  "schema": "iv.aom/security-baseline/v1",
+  "version": 1,
+  "defaults": {
+    "fail_closed": true,
+    "secrets_in_repo": false,
+    "raw_personal_data_in_repo": false,
+    "unpublished_product_data_in_repo": false,
+    "worker_can_publish": false,
+    "pilot_publish_requires_human_approval": true,
+    "agentmemory_bind": "loopback",
+    "agentmemory_cross_pilot_sharing": false,
+    "scarf_dashboard_is_authoritative": false
+  },
+  "personal_context": {
+    "external_actions": "deny",
+    "source_retrieval_when_evidence_matters": "required",
+    "memory_authority": "non_canonical"
+  },
+  "freddie_product": {
+    "allowed_prompt_origins": ["authenticated_internal_operator"],
+    "arbitrary_external_prompts": "deny_before_model_invocation",
+    "external_text_handling": "untrusted_input_only",
+    "publication_interface": "wap_only",
+    "kanban_auto_decompose_initially": false,
+    "kanban_auto_subscribe_on_create_initially": false
+  }
+}

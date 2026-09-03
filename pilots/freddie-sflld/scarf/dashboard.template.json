@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "title": "Freddie SFL-LD Product Hermes",
+  "description": "AOM pilot projection. Not authoritative Product state.",
+  "updatedAt": "2026-09-03T14:00:00Z",
+  "sections": [
+    {
+      "title": "Authority Snapshot",
+      "columns": 3,
+      "widgets": [
+        {
+          "type": "stat",
+          "title": "Published Version",
+          "value": "from WAP resolver",
+          "subtitle": "Projection only; verify via publication-resolution.v1",
+          "color": "blue"
+        },
+        {
+          "type": "stat",
+          "title": "Open Attention Items",
+          "value": 0,
+          "subtitle": "Generated from management snapshot",
+          "color": "green"
+        },
+        {
+          "type": "stat",
+          "title": "Evidence Gaps",
+          "value": 0,
+          "subtitle": "Entire verification required before acceptance",
+          "color": "green"
+        }
+      ]
+    },
+    {
+      "title": "Current Work",
+      "columns": 2,
+      "widgets": [
+        {"type": "kanban_summary", "title": "Hermes Kanban", "value": 5},
+        {
+          "type": "list",
+          "title": "Phase 1 Gates",
+          "items": [
+            {"text": "Orientation completed", "status": "pending"},
+            {"text": "Bounded improvement selected", "status": "pending"},
+            {"text": "Routed worker trace verified", "status": "pending"},
+            {"text": "AUDIT passed", "status": "pending"},
+            {"text": "Human publish approval recorded", "status": "pending"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Reports",
+      "columns": 1,
+      "widgets": [
+        {
+          "type": "markdown_file",
+          "title": "Latest AOM Management Snapshot",
+          "path": "reports/aom-management-snapshot.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "iv.aom/admission-context/v1",
+  "request_id": "req-01JZEXAMPLE001",
+  "audience": "freddie-product-hermes",
+  "authenticated_principal": "user:kyle",
+  "immediate_caller": "scarf-over-ssh",
+  "origin_chain": [
+    {
+      "principal": "user:kyle",
+      "channel": "scarfgo-ssh",
+      "trust_zone": "internal_control"
+    }
+  ],
+  "content_class": "internal_operator_instruction",
+  "policy": {
+    "id": "freddie-product-hermes-ingress",
+    "version": 1,
+    "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "decision": "allow",
+  "reason_codes": ["authenticated_internal_operator"],
+  "created_at": "2026-09-03T14:00:00Z",
+  "producer": {"id": "aom-admission", "version": "0.1.0"}
+}

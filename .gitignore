@@ -1,0 +1,23 @@
+# Runtime and sensitive state must never enter this repository.
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.log
+
+# Pilot runtime projections and captures
+.aom/runtime/
+.aom/state/
+.agentmemory/
+.hermes/
+.entire/metadata/
+
+# Local tooling
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
