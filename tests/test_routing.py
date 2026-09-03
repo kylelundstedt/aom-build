@@ -90,11 +90,15 @@ class TestLoadPolicy:
 
 
 class TestDecide:
-    def test_high_assurance_product_change_fails_no_eligible_worker(self, policy):
-        """Real current state: fable is unresolved → formulate stage fails."""
-        with pytest.raises(RoutingError) as exc:
-            decide(policy, _task_ref(), _inputs())
-        assert exc.value.code == "no_eligible_worker"
+    def test_committed_policy_full_decision_fable_resolved_qwen_filtered(self, policy):
+        """Real current state: fable resolved (claude-fable-5), qwen_local still
+        unresolved → 4-stage decision succeeds with qwen filtered from implement."""
+        decision = decide(policy, _task_ref(), _inputs())
+        validate("routing-decision.v1", decision)
+        assert decision["strategy"]["strategy_id"] == "high_assurance_product_change"
+        by_id = {s["id"]: s for s in decision["strategy"]["stages"]}
+        assert by_id["formulate"]["candidate_workers"] == ["fable"]
+        assert by_id["implement"]["candidate_workers"] == ["luna"]
 
     def test_resolved_policy_full_4_stage_decision_validates(self):
         pol = _resolved_policy()

@@ -148,24 +148,41 @@ def test_full_chain_composes(resolved_policy, tmp_path):
     assert attempt["worker"]["actual_model"] in md
 
 
-def test_committed_policy_fails_closed_on_unresolved_fable():
-    """The real committed policy must refuse high-assurance routing today."""
+def test_committed_policy_current_availability():
+    """Real committed policy state: fable resolved to claude-fable-5;
+    qwen_local still unresolved so vm_only-style local strategies fail closed."""
     policy = routing.load_policy(repo_root() / "config" / "worker-routing.v1.json")
-    with pytest.raises(routing.RoutingError) as exc:
+    decision = routing.decide(
+        policy,
+        task_ref={"domain": "work", "id": "FREDDIE-1"},
+        inputs={
+            "task_type": "product_change",
+            "assurance": "high",
+            "classification": "confidential",
+            "locality": "hosted_allowed",
+            "ambiguity": "low",
+            "parallelizable": False,
+            "budget_class": "standard",
+        },
+    )
+    by_id = {s["id"]: s for s in decision["strategy"]["stages"]}
+    assert by_id["formulate"]["candidate_workers"] == ["fable"]
+    assert "qwen_local" not in by_id["implement"]["candidate_workers"]
+
+    with pytest.raises(routing.RoutingError):
         routing.decide(
             policy,
-            task_ref={"domain": "work", "id": "FREDDIE-1"},
+            task_ref={"domain": "work", "id": "FREDDIE-2"},
             inputs={
-                "task_type": "product_change",
-                "assurance": "high",
+                "task_type": "local_processing",
+                "assurance": "standard",
                 "classification": "confidential",
-                "locality": "hosted_allowed",
+                "locality": "vm_only",
                 "ambiguity": "low",
                 "parallelizable": False,
-                "budget_class": "standard",
+                "budget_class": "low",
             },
         )
-    assert exc.value.code == "no_eligible_worker"
 
 
 def test_vm_only_never_reaches_runner(resolved_policy):

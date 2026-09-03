@@ -40,10 +40,13 @@ resolved.
 
 ## Model-routing decisions
 
-1. What exact model/service does **Fable** refer to on the target VM? It is not
-   exposed by name on the current `aom-build` Shelley instance.
-2. Are Sol and Luna the `gpt-5.6-sol` / `gpt-5.6-luna` models, aliases, or a
-   subscription-specific configuration on another VM?
+1. ~~What exact model does **Fable** refer to?~~ **Resolved 2026-09-03:**
+   `claude-fable-5` via Shelley's Anthropic subscription credentials (verified
+   with `shelley models` on this VM; it comes from the Claude subscription
+   login, not the exe.dev LLM gateway). The Product VM needs its own
+   `shelley login anthropic`; verify during Phase B.
+2. Sol and Luna map to `gpt-5.6-sol` / `gpt-5.6-luna` (available on both the
+   exe.dev gateway and this VM's Shelley). Confirm on the target VM.
 3. Where does self-hosted Qwen run, what API/protocol exposes it, and what data
    classifications may be sent to it?
 4. May personal information or unpublished Product content be sent to hosted

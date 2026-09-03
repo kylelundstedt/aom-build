@@ -33,8 +33,15 @@ planning.
 
 ## Still open
 
-- Fable model identity and self-hosted Qwen endpoint (routing catalog entries
-  remain `availability: unresolved`; strategies requiring them fail closed).
+- ~~Fable model identity~~ **Resolved 2026-09-03:** Fable is `claude-fable-5`,
+  available through Shelley's Anthropic subscription credentials (verified on
+  this VM via `shelley models`). Subscription OAuth credentials are per-VM, so
+  the Product VM needs its own `shelley login anthropic` — verify during
+  Phase B (C-015).
+- Self-hosted Qwen endpoint on `klundstedt-mini` (routing catalog entry remains
+  `availability: unresolved`; local-only strategies fail closed). Hosted
+  Qwen-family models exist via the exe.dev gateway but do not satisfy
+  `vm_only` locality.
 - First bounded Freddie improvement (selected after orientation, D-009).
 - Pilot duration, baselines, and stop thresholds (D-010).
 

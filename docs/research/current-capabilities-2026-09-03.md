@@ -34,8 +34,13 @@ Verified with `shelley version`, `shelley models`, and `shelley client help`:
   creation idempotency is exposed. The adapter must advertise only verified
   operations and reconcile ambiguous creates.
 - Current local model catalog includes `gpt-5.6-sol`, `gpt-5.6-luna`, and
-  hosted Qwen-family models. It does **not** expose a model named Fable or a
-  verified self-hosted Qwen endpoint. Target-VM routing mappings remain unknown.
+  hosted Qwen-family models via the exe.dev LLM gateway, **plus**
+  `claude-fable-5`, `claude-opus-5`, and other Anthropic models via the VM's
+  Claude subscription credentials (`shelley login anthropic`; verified
+  2026-09-03 — an earlier snapshot missed these because `shelley models` was
+  run before/without the credential path being exercised). Subscription
+  credentials are per-VM: the Freddie Product VM must hold its own login.
+  Self-hosted Qwen remains unverified; hosted Qwen does not satisfy `vm_only`.
 
 ### Entire and Shelley capture
 

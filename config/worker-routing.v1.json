@@ -10,10 +10,11 @@
   },
   "worker_catalog": {
     "fable": {
-      "kind": "logical_mapping",
-      "capabilities": ["requirements", "specification", "planning"],
-      "target_model": null,
-      "availability": "unresolved"
+      "kind": "shelley_model",
+      "capabilities": ["requirements", "specification", "planning", "dataset_semantics"],
+      "target_model": "claude-fable-5",
+      "availability": "verify_on_target",
+      "notes": "Anthropic subscription model; requires shelley login anthropic on the target VM (OAuth credentials are per-VM, never copied)."
     },
     "sol": {
       "kind": "shelley_model",
@@ -31,7 +32,8 @@
       "kind": "named_private_endpoint",
       "capabilities": ["bounded_parallel_work", "local_processing"],
       "target_model": null,
-      "availability": "unresolved"
+      "availability": "unresolved",
+      "notes": "Self-hosted Qwen on klundstedt-mini: endpoint/protocol unresolved. Hosted Qwen (fireworks qwen3p8-2p4t-a95b) exists via the exe.dev gateway but does NOT satisfy vm_only/named_endpoint_only locality."
     }
   },
   "strategies": {
