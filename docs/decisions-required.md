@@ -17,8 +17,15 @@
 | D-009 | **Open:** first Freddie improvement — selected after orientation. |
 | D-010 | **Open:** pilot duration and thresholds — to be set before deployment. |
 
-Still unresolved: Fable model identity, self-hosted Qwen endpoint, and the
-model-routing/data-egress questions below. See ADR 0003.
+Still unresolved: self-hosted Qwen endpoint, and the model-routing/data-egress
+questions below. See ADR 0003.
+
+**2026-09-03 — additional resolutions:**
+
+| ID | Resolution |
+| --- | --- |
+| D-011 | **Resolved:** Personal Hermes uses Option A — one Hermes scoped to "Kyle as an individual" (`kgl-hermes`) over the full mixed personal/work `personal-mcp` corpus, classified as a single `kyle-individual` domain. Boundaries are structural: no Product/repo/WAP access on the personal VM; no personal-mcp access on the Product VM; separate AgentMemory instances; operator-only ingress on both. Memory observations are best-effort tagged `personal` / `work` / `client:<name>` as they accrue, preserving the evidence and exit ramp for a later kgl/IV split if the pilot shows the domains interfere. Open sub-question: hosted-model egress approval for `kyle-individual` content (blocks Pilot 1A start). |
+| D-012 | **Resolved:** No `iv-pm` / Manager Hermes in Phase 1, and no VM with aggregated access to project/product VMs at any phase. The cross-fleet management function is Scarf/ScarfGo's multi-server view — Kyle is the manager, with one window per Hermes host. This keeps pilot hypothesis 9 (native-interface sufficiency) testable. A Manager Hermes is introduced only when coordinating several running agents becomes measurably repetitive (AOM Step 3), and even then it coordinates via peer/A2A messaging with subordinates holding their own credentials — management hierarchy is context-compression, never privilege-aggregation. |
 
 No external pilot changes should begin until the remaining open items are
 resolved.

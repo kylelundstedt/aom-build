@@ -8,6 +8,24 @@ Measure whether a persistent Personal Hermes materially reduces the effort to
 reconstruct historical context compared with a fresh agent using the same
 read-only `personal-mcp` source.
 
+## Domain scope (D-011)
+
+This Hermes is scoped to **Kyle as an individual** (`kgl-hermes`), not to a
+"personal vs work" split. The `personal-mcp` corpus is a mixed record of
+personal, IV, and client correspondence; it is treated as one classification,
+`kyle-individual`. The enforced boundaries are structural, between systems:
+
+- this VM has no Product/repo/WAP access or credentials;
+- the Product VM has no route to `personal-mcp`;
+- AgentMemory instances are separate per pilot;
+- both Hermes are operator-only.
+
+As memory accumulates, observations are best-effort tagged
+`personal` / `work` / `client:<name>` — evidence for a possible later domain
+split, not an enforcement mechanism.
+
+Open gate: hosted-model egress approval for `kyle-individual` content.
+
 ## Proposed topology
 
 ```text
