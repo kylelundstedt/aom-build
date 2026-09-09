@@ -440,11 +440,15 @@ Test:
 10. Are Hermes + Scarf + Shelley native interfaces sufficient without
     AgentView, Paperclip, FruVisi, or a custom cockpit?
 
-Per [ADR 0005](./adr/0005-worker-substrate-null-hypothesis.md), each
-layer is evaluated against the strongest simpler alternative, not its
-absence: Hermes against a designated long-lived Shelley manager
-conversation, and Shelley workers against Kanban-native Hermes workers
-(at least one real task routed Kanban-native for comparison).
+Per [ADR 0005](./adr/0005-worker-substrate-null-hypothesis.md) and
+[ADR 0006](./adr/0006-hermes-native-cli-worker-pilot-arm.md), each layer
+is evaluated against the strongest simpler alternative, not its absence.
+Hermes is compared against a designated long-lived Shelley manager
+conversation. The worker layer runs **two arms of real tasks**: Shelley
+conversations (Arm S) versus Hermes Kanban dispatch to native CLI
+workers — Codex app-server runtime and the bundled claude-code skill
+(Arm C). Worker-routing assigns tasks to arms explicitly so results are
+attributable.
 
 ### 5.9 Success criterion
 
