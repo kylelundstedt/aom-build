@@ -440,6 +440,12 @@ Test:
 10. Are Hermes + Scarf + Shelley native interfaces sufficient without
     AgentView, Paperclip, FruVisi, or a custom cockpit?
 
+Per [ADR 0005](./adr/0005-worker-substrate-null-hypothesis.md), each
+layer is evaluated against the strongest simpler alternative, not its
+absence: Hermes against a designated long-lived Shelley manager
+conversation, and Shelley workers against Kanban-native Hermes workers
+(at least one real task routed Kanban-native for comparison).
+
 ### 5.9 Success criterion
 
 > **The Freddie stack should reduce human context reconstruction and
