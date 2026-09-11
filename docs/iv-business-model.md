@@ -132,6 +132,74 @@ per-client product instances** (ServicerVault-the-template versus
 methodology version; the instance owns the client's data, entitlements,
 and releases.
 
+#### Worked example: CMG Subservicer Oversight
+
+CMG uses four subservicers — ServiceMac, Cenlar, Northpoint, and
+Merchants — each providing extracts ranging from roughly 70 fields
+(Merchants) to roughly 1,000 fields (Cenlar), with no standardization
+whatsoever. The oversight DAG:
+
+``` text
+servicemac-extract@cmg ---+
+cenlar-extract@cmg -------+--> servicervault-oversight@cmg
+northpoint-extract@cmg ---+
+merchants-extract@cmg ----+
+```
+
+**Release identity is a tuple, not a scalar.** For
+`cenlar-extract@###` to be well-defined, each published release must
+carry at least:
+
+``` text
+cenlar-extract release = {
+  family:   cenlar-model@S, cenlar→sv-mapping@M   # shared IV IP
+  instance: cmg                                    # client's book at Cenlar
+  as-of:    2026-08                                # data period
+  rev:      2                                      # correction revision
+  coverage: tier 3                                 # see below
+}
+```
+
+The as-of / revision split adds a **data-period axis** distinct from
+methodology versioning: servicing data arrives periodically, and
+corrections republish the *same as-of* at rev+1 — never mutating a
+published release. This is the restatement discipline of §2 given a
+concrete mechanism.
+
+**Coverage tiers.** The servicervault family defines graded data
+coverage — tier 1 (50–70 required fields) through tier 5 (~3,000
+fields drawn from the ~50,000 in MSP or LoanServ). Coverage tier is a
+family-defined, per-release attribute **orthogonal to assurance tier
+(§7)**: assurance says *how verified*, coverage says *how wide*. A
+tier-1/human-signed release and a tier-4/agent-audited release are
+both coherent products. Merchants' ~70-field extract can publish only
+at tier 1; Cenlar's ~1,000 fields support higher tiers.
+
+**The composite carries a comparability floor.**
+`servicervault-oversight@cmg` pins the four upstream release tuples
+(with an as-of alignment rule), a servicervault-family version, and a
+per-source coverage vector. The comparability floor is the highest
+tier all sources meet — likely tier 1 here. This makes the GAAP claim
+precise: metrics computed at or below the floor are comparable across
+subservicers; above the floor, coverage is disclosed per source. It
+also makes the tier-1 field set the most important artifact in the
+family — the common denominator that makes cross-subservicer oversight
+possible at all.
+
+**Mappings are the versioned, amortizing IP.** Each
+(source model, canonical family, tier) pair has a versioned
+standardized mapping (`cenlar→sv-mapping@M` at tier 3, and so on) that
+evolves independently of data periods. Every instance release pins the
+exact mapping version that produced it — without which the workpaper
+re-performance test (§8) cannot be met.
+
+**Demand-side note.** Subservicer oversight is itself a compulsion
+channel in the §4.3 pattern: regulators expect servicers to oversee
+their subservicers, and today that duty is discharged with
+spreadsheets over incompatible extracts. The same composite serves
+adjacent instances (servicer reporting) from the same cores under
+differently versioned mappings.
+
 ### 3.5 Strategic consequence: the boundary becomes the precondition
 
 For the flagship layers the interior no longer holds only messy
@@ -589,11 +657,16 @@ to the org chart.
    For products carrying client NPI through agent workers, it is the
    precondition for the business existing at all.
 4. Agents prepare; controls close; evidence proves; a human signs.
-5. Assurance level is an explicit, per-release, priced attribute —
-   never an implicit casualty of throughput.
-6. Audit evidence must pass the workpaper (re-performance) test to
+5. Assurance level (how verified) and coverage tier (how wide) are
+   explicit, orthogonal, per-release, priced attributes — never
+   implicit casualties of throughput or source limitations.
+6. A release is identified by a tuple — family/methodology version,
+   client instance, as-of period, revision, coverage — and corrections
+   republish the same as-of at a new revision; published releases are
+   never mutated.
+7. Audit evidence must pass the workpaper (re-performance) test to
    count as evidence.
-7. IV attests to its own products over audited controls; it does not
+8. IV attests to its own products over audited controls; it does not
    claim independence it does not have.
-8. The core business metric is leverage: Products credibly operated and
+9. The core business metric is leverage: Products credibly operated and
    signed per human hour.

@@ -25,6 +25,7 @@ pilot; **P2** improves evaluation or operations but is not a launch blocker.
 | C-013 | P1 | EXTERNAL | Establish backup, restore, retention, and deletion expectations | C-003 | Restore is tested; ownership and retention are documented per state store |
 | C-014 | P1 | AOM-BUILD | Build systemd/config templates with placeholders only | C-012,C-013 | Templates use unprivileged users, loopback/private binds, and no embedded secrets |
 | C-015 | P1 | EXTERNAL | Inventory model availability/privacy/capacity on target VMs | Kyle authorization | Fable/Sol/Luna/local-Qwen mappings are explicit; unsupported routes fail closed |
+| C-016 | P2 | AOM-BUILD | ADR + schema support for product family vs. per-client instance (see `iv-business-model.md` §3.4, CMG example): release identity as tuple (family/methodology version, instance, as-of, revision, coverage tier); versioned source→canonical mappings; composite comparability floor | first proprietary-core client engagement | Resolver, entitlement, and manifest schemas distinguish family and instance; instance releases pin family, mapping, and upstream release tuples; corrections republish same as-of at new revision |
 
 ## Pilot 1A — Personal Context
 
