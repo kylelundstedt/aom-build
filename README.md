@@ -13,6 +13,7 @@ Entire checkpoints.
 1. [`docs/architecture-contract.md`](docs/architecture-contract.md) — binding architectural constraints.
 2. [`docs/hermes-scarf-pilot.md`](docs/hermes-scarf-pilot.md) — current execution plan.
 3. [`docs/iv-agent-operating-model.md`](docs/iv-agent-operating-model.md) — full architecture and rationale.
+4. [`docs/iv-business-model.md`](docs/iv-business-model.md) — business framing: IV as an assurance firm for data products.
 
 When they differ, the Architecture Contract constrains the pilot plan.
 
