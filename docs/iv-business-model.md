@@ -47,9 +47,9 @@ Layer                Examples                     Data ownership   What amortize
 public-source        gse-lld (fannie/freddie/     public / free    the verified DATA itself
 cores                ginnie), FEMA, HMDA
 
-proprietary-source   msp-vault, loanserv-vault,   client NPI       the SEMANTIC MODEL of the
-cores                encompass-vault, byte-vault,                  source system (not the data)
-                     default-management vaults
+proprietary-source   msp-core, loanserv-core,   client NPI       the SEMANTIC MODEL of the
+cores                encompass-core, byte-core,                  source system (not the data)
+                     default-management cores
 
 function-specific    ServicerVault,               composite        the CANONICAL FUNCTION MODEL
 composites           OriginatorVault                               (source-agnostic semantics)
@@ -60,7 +60,7 @@ verification. One WAP pipeline; N clients rely on the same published
 versions. Classic verify-once/N-rely economics — the entry layer, not
 the flagship.
 
-**Proprietary-source cores.** `msp-vault` for Client A cannot be sold
+**Proprietary-source cores.** `msp-core` for Client A cannot be sold
 to Client B — the data is Client A's non-public servicing book. What
 amortizes is the **source-system semantic model**: the hard-won map of
 MSP's ~50,000 fields, code sets, stop codes, misuse patterns, and
@@ -79,7 +79,7 @@ mapping completes:
 ``` text
 IV canonical function model      GAAP (align with / extend MISMO —
                                  "MISMO is our GAAP")
-msp-vault / encompass-vault      the audited books
+msp-core / encompass-core      the audited books
 ServicerVault / OriginatorVault  the financial statements
 ```
 
@@ -154,10 +154,12 @@ product, and it is the only honest answer:
 The architecture is a differentiator worth marketing, not internal
 plumbing.
 
-> **Open naming question (Kyle):** `msp-vault` (proprietary core) and
-> `ServicerVault` (composite) use the -Vault brand at two different
-> layers. If "Vault" is the client-facing composite brand, cores might
-> better be `msp-core` / `cenlar-extract` style.
+> **Naming convention (resolved):** **Vault** is reserved for
+> client-facing composites (ServicerVault, OriginatorVault). Cores are
+> named by role: source-system semantic-model cores as `msp-core`,
+> `loanserv-core`, `encompass-core`, `byte-core`; per-client source
+> datasets as `cenlar-extract@client` style. The name itself encodes
+> the layer — ingredients versus attested product.
 
 ## 3. Why buyers pay
 
