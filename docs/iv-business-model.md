@@ -63,6 +63,11 @@ customer buys, the firm is an assurance firm that runs a factory — not
 a manufacturer with a QA department. The frames compose: manufacturing
 inside the boundary, accounting at and beyond it.
 
+This two-faced structure generalizes to all knowledge work in the AI
+era; see `knowledge-work-and-publication-boundaries.md` for the
+broader argument (codification paradox, scarcity migration to
+accountability, meta-tacit maintenance).
+
 ## 2. The product line: three economic layers
 
 ``` text
