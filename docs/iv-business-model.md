@@ -503,7 +503,14 @@ Revenue follows the boundary:
 source, per loan, per coverage level × assurance tier, flat per
 instance? The upgrade funnel (§3.3) implies the metric must make tier
 upgrades cheap to buy and the comparability floor implies per-source
-pricing distorts incentives. Needs a dedicated pass with real client
+pricing distorts incentives. Two constraints from intermediation
+theory (`knowledge-work-and-publication-boundaries.md` Appendix B):
+IV's model is structurally **user-pays** — the relier buys the
+attestation — which is the aligned form (issuer-pays is what corroded
+the rating agencies); and at scale the signature will need
+insurance-like or capital backing (E&O, franchise value) to keep skin
+commensurate with client reliance — the title-policy maturation path
+for the top assurance tier. Needs a dedicated pass with real client
 conversations.
 
 ## 7. Risks, caveats, competition

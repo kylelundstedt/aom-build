@@ -100,6 +100,14 @@ no franchise to lose. **Being someone — identity, liability, skin in
 the game — is the one input to knowledge work that cannot be rented
 from a model vendor.**
 
+One qualification from finance theory (Leland–Pyle; see Appendix B):
+skin signals only when it is *commensurate* — a named signer whose
+exposure is trivial next to the reliance placed on the signature is a
+weak bond. At scale, signatures must be backed by capital-like or
+insurance-like structures — E&O, franchise value that exceeds any
+one-shot gain from shirking, or literal insurance. Title insurance is
+attestation matured into exactly that form.
+
 The two forces meet at the boundary: the paradox pushes methodology
 inside; the scarcity pulls the signature outside. What sits between
 them — the gate, the controls, the evidence — is where the design
@@ -176,7 +184,11 @@ Three answers generalize:
 3. **The N-case flywheel is unavailable to any single-buyer
    interior.** A specialist across N clients accumulates validated
    edge cases; agents can regenerate methodology but not the
-   validation corpus.
+   validation corpus. The flywheel is also an *incentive* asset, not
+   just an epistemic one (Diamond's delegated-monitoring result; see
+   Appendix B): an attestor's aggregate performance across N clients
+   is observable, making its promises enforceable in a way no
+   one-client attestor's can be — however sincere.
 
 The third answer is why the §4.1 equilibrium is stable as specialist
 firms selling attested artifacts rather than every buyer running
@@ -241,6 +253,13 @@ their exception-detection alive.** Skill atrophy is not an HR concern;
 it is depreciation of the firm's core asset. For IV this argues for
 humans periodically re-performing audits by hand — not because agents
 cannot, but to keep the signature real.
+
+A second failure mode comes from fee structure rather than skill: the
+rating agencies showed that reputational capital does not survive
+misaligned payment (issuer-pays certification, 2008; see Appendix B).
+**Who pays the attestor is a first-order design variable.** User-pays —
+the relier buys the attestation — aligns; issuer-pays — the attested
+party buys it — corrodes, however strong the franchise.
 
 ## 8. Compressed
 
@@ -326,3 +345,74 @@ network. This also instantiates the individual claim (§5) with a
 concrete population: the mid-level fulfillment professional holds
 neither signature nor boundary — the weakly defended position,
 staffed by thousands.
+
+---
+
+## Appendix B: Relation to financial intermediation theory
+
+The essay was derived from Polanyi and Coase, not from banking — yet
+it substantially rediscovers the theory of financial intermediation.
+The convergence is evidence for the thesis: intermediation theory is
+what economics learned by studying the one industry (§3) that reached
+the boundary equilibrium a century early. The essay is, in effect,
+that theory generalized from capital to knowledge.
+
+The correspondence:
+
+| Essay claim | Intermediation-theory antecedent |
+| --- | --- |
+| One specialist verifies; N reliers rely (§4.2) | Diamond (1984), delegated monitoring: duplicated monitoring by every lender is wasteful; delegate it once. The founding result of the field. |
+| The N-case flywheel (§4.2) | Ramakrishnan–Thakor (1984), information-production coalitions; Chan (1983), information reusability across borrowers. |
+| A signer with skin; the unrentable input (§2.2) | Leland–Pyle (1977): under asymmetric information, quality is credibly signaled only by retained exposure. Post-2008 risk-retention rules encode it in statute. |
+| Selling signatures; the profession (§3) | Klein–Leffler (1981), reputation as a quality-assuring bond; Booth–Smith (1986), the certification hypothesis — renting reputational capital. |
+| Credence goods facing third parties (§6) | Akerlof (1970), lemons; Darby–Karni, credence goods. The essay's scope conditions are where the lemons problem does not bind. |
+| Function persists, institutions churn (§3) | Merton–Bodie, the functional perspective on financial systems. |
+| Economy of boundaries (§4.1) | Coase (1937); Williamson on governance; empirically, the securitization-driven unbundling of the mortgage bank. |
+
+Three results sharpen the essay rather than merely anticipate it:
+
+1. **Diversification as incentive (Diamond).** Delegated monitoring
+   is enforceable not because the monitor is virtuous but because a
+   diversified monitor's aggregate performance is observable. The
+   N-case flywheel is therefore an incentive asset as well as an
+   epistemic one (§4.2) — which strengthens the anti-internalization
+   argument: a single-book attestor cannot be disciplined by
+   aggregate performance at all.
+2. **Commensurate retention (Leland–Pyle; Klein–Leffler).** The
+   signal works only if retained exposure is large relative to
+   reliance. "A signer with skin" therefore scales only when backed
+   by capital-like or insurance-like structures (§2.2) — the mature
+   forms being E&O, franchise value exceeding one-shot shirking
+   gains, and literal insurance (title's policy model).
+3. **Fee-structure conflicts (the rating agencies).** Issuer-pays
+   certification plus reputational capital was believed
+   self-enforcing and was not (2008). Who pays the attestor is a
+   design variable that reputation does not override (§7).
+
+One subtler parallel: **information-insensitivity
+(Gorton–Pennacchi; Holmström).** The best-functioning instruments are
+engineered so no one needs to perform due diligence — collateral
+works because it *could* be examined and routinely is not. An attested
+artifact is exactly this: re-performable evidence is what makes
+non-performance of verification rational. The publication boundary
+manufactures information-insensitivity for knowledge artifacts — you
+make the release maximally checkable precisely so no one bothers to
+check it.
+
+History also supports the essay's prediction over the naive one.
+Every information-cost shock — telecom, internet, fintech — produced
+forecasts that intermediaries would disappear, and each time they
+re-formed around the trust function while shedding the processing
+function; securitization did not eliminate the mortgage intermediary
+but exploded it into a network of specialized attestors (§3). The
+disintermediation test (§4.2) predicts AI repeats the pattern:
+generation disperses, attestation concentrates.
+
+What the essay adds that the finance literature lacks: the
+**codification paradox** (§2.1) — intermediation theory has no
+account of the producer's dilemma that automation requires
+externalizing exactly the knowledge that then becomes copyable — and
+the **specific asymmetry of the AI shock** (§2.2): generation costs
+collapse while the verification burden per unit of output rises,
+which is why this wave concentrates value in attestation faster than
+its predecessors.
