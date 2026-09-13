@@ -14,7 +14,7 @@ Entire checkpoints.
 2. [`docs/hermes-scarf-pilot.md`](docs/hermes-scarf-pilot.md) — current execution plan.
 3. [`docs/iv-agent-operating-model.md`](docs/iv-agent-operating-model.md) — full architecture and rationale.
 4. [`docs/iv-business-model.md`](docs/iv-business-model.md) — business framing: IV as an assurance firm for data products.
-5. [`docs/knowledge-work-and-publication-boundaries.md`](docs/knowledge-work-and-publication-boundaries.md) — essay: the publication boundary as the general shape of AI-era knowledge work.
+5. [`docs/knowledge-work-and-publication-boundaries.md`](docs/knowledge-work-and-publication-boundaries.md) — essay stub: summary and section map; canonical essay lives in the `thoughts` (lundstedt.us) repo.
 
 When they differ, the Architecture Contract constrains the pilot plan.
 
