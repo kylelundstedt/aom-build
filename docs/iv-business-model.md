@@ -300,7 +300,7 @@ it."**
 
 The objection and its answers generalize beyond IV to all AI-era
 knowledge work — see `knowledge-work-and-publication-boundaries.md`
-§6, "The disintermediation test." Its §6.3 works the test through a
+§4.2, "The disintermediation test." Its Appendix A works the test through a
 mid-size mortgage lender and lands on the same segmentation from the
 other side: the post-AI IMB keeps relationships, risk decisions with
 skin, its R&W signature and control apparatus, and vendor
