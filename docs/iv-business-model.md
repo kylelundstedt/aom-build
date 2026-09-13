@@ -25,10 +25,11 @@ and a human signs the opinion.
 
 Four claims carry the model:
 
-1. **IV sells assurance, not labor and not content.** The buyer's
-   alternative is running an internal verification or
-   source-system-decoding team — expensive, unattested, key-person
-   fragile. One specialist verifies; N reliers rely.
+1. **IV sells assurance, not labor and not content.** Agents
+   commoditize production for the client as much as for IV; what the
+   client cannot rent is the compounding N-book assurance apparatus
+   and a signer their reviewers accept (§3.1). One specialist
+   verifies; N reliers rely.
 2. **What amortizes differs by product layer** — verified public data,
    source-system semantic models, or the canonical function model —
    but in every layer the amortizing asset is methodology and evidence,
@@ -211,7 +212,8 @@ datasets — so IV's demand must stand voluntarily on the other four:
    shop over free data. Composites: the buyer pays to not run the
    internal data-engineering team every servicer maintains to decode
    MSP extracts — a team whose output is unattested, undocumented, and
-   key-person fragile.
+   key-person fragile. (Agents erode the labor-arbitrage half of this
+   argument; the assurance half survives and strengthens — §3.1.)
 2. *Signaling, with a twist.* The asymmetry is about the raw data's
    fitness, not IV's honesty. Published evidence plus the workpaper
    standard converts "trust me" into "check me": IV *invites*
@@ -232,7 +234,71 @@ quality regardless of vendor. Regulation compels the *client's*
 diligence; IV sells the pre-packaged answer, currently produced
 in-house with spreadsheets over incompatible extracts.
 
-### 3.1 The industry already outsources attestation by default
+### 3.1 The internalization objection
+
+The strongest objection to the whole model, at full strength: *"Agents
+just made your production process rentable. My data team can rent the
+same models you use. The verification shop you tell me not to run just
+got 10× cheaper to run. Why is there still a firm here?"*
+
+Note what this attacks: if the demand story is labor arbitrage — "pay
+to not run the team" — AI erodes it, for IV as much as for anyone. The
+real answers are elsewhere:
+
+1. **Agents commoditize WRITE, not AUDIT.** Agents collapse the cost
+   of production — cracking the extract, drafting mappings, writing
+   transforms. They do not collapse the cost of knowing the output is
+   right; stochastic production *raises* the verification burden per
+   unit of output. The client who internalizes gets cheap WRITE and
+   then discovers the expensive thing was never WRITE: it is the
+   assurance apparatus — controls, evals, reconciliation suites,
+   evidence chains, publication discipline. Agents shift cost from
+   production to verification, and verification infrastructure is
+   precisely the product.
+2. **You cannot attest to yourself.** Firms with internal accountants
+   still pay external auditors. An internal team's dataset is
+   management's assertion about management's data; the moment it faces
+   counterparties — model validation, investor reporting, oversight
+   files, exams — someone downstream must verify it, expensively,
+   every time. Internalization internalizes production; the
+   attestation gap remains, and grows as agent-produced content floods
+   it. The buyer is often the client's *reviewers*, whose demand the
+   client's own team cannot satisfy, agents or no agents.
+3. **The N-book flywheel is structurally unavailable internally.** An
+   internal team sees one book; IV sees N books through the same
+   source systems. Every anomaly found in one client's extract hardens
+   the core and its evals for every client. A client's agents can
+   rediscover MSP semantics from scratch; they cannot rediscover the
+   accumulated *validation* — the edge cases already caught and
+   encoded as controls across N books. And an internal dataset is
+   idiosyncratic by construction: comparability is a multi-client
+   artifact an internal team cannot produce.
+4. **The boundary is the anti-internalization moat.** ADR 0007's rule —
+   methodology stays home, semantics travel with the artifact — plus
+   its adversarial-review release gate mean a client can consume
+   ServicerVault for five years and be no closer to knowing how to
+   build it. They receive meanings and evidence, never the eval
+   suites, control definitions, or failure corpus. Internalizing
+   always means starting from scratch against a methodology that
+   compounds.
+5. **Honest segmentation.** Some clients will internalize.
+   Mega-institutions can amortize an assurance factory over their own
+   scale — they are not the market, though their auditors may still
+   want external evidence. The sweet spot is the mid-size institution:
+   enough regulatory surface to need real attestation, nowhere near
+   the scale to amortize the apparatus over one book. And the
+   self-performer's trap: an internal team that adopts agents without
+   the assurance apparatus produces more unattested output faster —
+   the resulting exam and trade incidents will do IV's marketing.
+
+The reframed pitch: **"Your team, with agents, can now produce the
+dataset cheaply. Nobody downstream will take their word for it. What
+you cannot rent — and cannot economically build for one book — is the
+compounding N-book assurance apparatus and a signer your reviewers
+accept; and consuming our product will never teach you to replicate
+it."**
+
+### 3.2 The industry already outsources attestation by default
 
 Mortgage finance long ago decomposed into specialist attestation
 functions everyone outsources; a lender is largely an assembler of
@@ -276,7 +342,7 @@ The pitch is therefore not "trust a novel agent-built product" but:
 **"a specialist attestation layer this asset class has always paid
 for — applied to datasets where buyers currently self-perform."**
 
-### 3.2 Why assurance is graduated
+### 3.3 Why assurance is graduated
 
 Assurance is costly, and its value scales with the **stakes of the
 decision the data feeds**: a backtest tolerates agent-compiled; a
@@ -424,7 +490,7 @@ Revenue follows the boundary:
 
 **TBD — pricing structure.** The price metric is undecided: per
 source, per loan, per coverage level × assurance tier, flat per
-instance? The upgrade funnel (§3.2) implies the metric must make tier
+instance? The upgrade funnel (§3.3) implies the metric must make tier
 upgrades cheap to buy and the comparability floor implies per-source
 pricing distorts incentives. Needs a dedicated pass with real client
 conversations.
@@ -443,7 +509,7 @@ conversations.
   boundary.
 - **Accountability theater.** If humans rubber-stamp what the reviewer
   model approved, the attestation hollows out (the Clayton failure,
-  §3.1). The human-facing evidence surface is therefore a first-class
+  §3.2). The human-facing evidence surface is therefore a first-class
   product requirement: a sign-off must be *real* in bounded time.
 - **Institutional knowledge lives in agents.** AgentMemory and Hermes
   context are institutional capital. The operating-model rule that
@@ -451,10 +517,13 @@ conversations.
   state — is also business-continuity policy: IV can replace a Hermes
   instance, model vendor, or runtime without losing the company.
 - **TBD — competition.** Who else could do this and why don't they?
-  Candidates: source-system vendors (ICE/MSP itself), servicing
-  analytics incumbents (McDash lineage), Big-4 advisory, in-house
-  builds. A real positioning pass is needed; the provisional answer is
-  that incumbents monetize lock-in or hours, and none invite
+  The primary competitor is the **in-house build** — answered in §3.1
+  (agents commoditize WRITE not AUDIT; self-attestation doesn't
+  satisfy reviewers; no N-book flywheel; the boundary prevents
+  learning-by-consuming). External candidates — source-system vendors
+  (ICE/MSP itself), servicing analytics incumbents (McDash lineage),
+  Big-4 advisory — still need a real positioning pass; the provisional
+  answer is that incumbents monetize lock-in or hours, and none invite
   re-performance.
 
 ## 8. What the freddie-sflld pilot tests, commercially

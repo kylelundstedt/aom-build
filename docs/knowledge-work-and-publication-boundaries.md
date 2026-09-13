@@ -137,7 +137,7 @@ judging what to codify next. Call it **meta-tacit knowledge**. The
 signature is only worth buying because the signer retains it; a signer
 who can no longer detect factory failure is performing accountability
 theater with extra steps — the Clayton failure
-(`iv-business-model.md` §3.1), individualized.
+(`iv-business-model.md` §3.2), individualized.
 
 The sustainability condition for any assurance-over-factory business:
 **the signing humans must stay in enough contact with the work to keep
