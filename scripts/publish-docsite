@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# publish-docsite — re-render this repo's doc site and publish it on :8000.
+#
+# Thin wrapper over iv-provision's provision-docsite (render → timestamped
+# release → atomic `current` symlink flip; a failed render never touches the
+# live site). Called automatically by the local .git/hooks/post-commit hook;
+# safe to run manually at any time.
+#
+# To (re)install the hook after a fresh clone:
+#   ./scripts/publish-docsite --install-hook
+set -euo pipefail
+
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+PROVISION=/home/exedev/iv-provision/bin/provision-docsite
+
+if [[ "${1:-}" == "--install-hook" ]]; then
+  HOOK="$REPO/.git/hooks/post-commit"
+  cat > "$HOOK" <<'EOF'
+#!/usr/bin/env bash
+# Auto-publish the doc site after each commit (quiet; never fails the commit).
+"$(git rev-parse --show-toplevel)/scripts/publish-docsite" >/dev/null 2>&1 || \
+  echo "post-commit: docsite publish failed; run ./scripts/publish-docsite manually" >&2
+EOF
+  chmod +x "$HOOK"
+  echo "installed $HOOK"
+  exit 0
+fi
+
+if [[ ! -x "$PROVISION" ]]; then
+  echo "publish-docsite: $PROVISION not found (VM without iv-provision?); skipping" >&2
+  exit 0
+fi
+
+exec "$PROVISION" "$REPO"

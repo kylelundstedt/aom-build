@@ -56,6 +56,14 @@ only after the unresolved decisions are reviewed and authorized.
 uv run pytest                  # Phase A adapter test suite
 ```
 
+## Doc site
+
+The rendered site at <https://aom-build.exe.xyz/> republishes
+automatically on every local commit via a `post-commit` hook calling
+[`scripts/publish-docsite`](scripts/publish-docsite). After a fresh
+clone, reinstall the hook with `./scripts/publish-docsite
+--install-hook`; run `./scripts/publish-docsite` to republish manually.
+
 Phase A adapters live in `src/aom/` (contracts validation, worker-routing
 engine, Shelley worker adapter, delegation trace/evidence gating, management
 snapshot generator). They are fixture-driven: nothing talks to a live Shelley,
