@@ -120,6 +120,20 @@ DAG of publication boundaries, each firm an interior. IV is not
 adopting an unusual architecture; it is arriving early at the general
 form.
 
+This is not speculation — there is an existence proof. **The mortgage
+industry arrived at this equilibrium a century before AI.** Title
+plants, flood-zone determiners, appraisers, credit bureaus, diligence
+firms: each is an interior (proprietary methodology, plant, data)
+publishing attested artifacts — policy, certificate, opinion, score —
+that cross between firms. A lender is largely an assembler of
+third-party attestations; a loan file *is* a bundle of
+publication-boundary crossings. The industry got there early because
+it maximizes every condition that drives the equilibrium: credence
+goods, dense counterparty chains (borrower → lender → GSE → investor →
+regulator), and high cost of being wrong. AI does not create the
+economy of boundaries; it extends an equilibrium that already governs
+wherever stakes were high enough to force it.
+
 The intra-firm version is contested ground. An employee who quietly
 automates their own job is running an unlicensed publication boundary
 inside their employer — selling attested outputs upward while keeping
@@ -128,7 +142,68 @@ IP-assignment claims over methodology. "Whose factory is it" becomes a
 central labor conflict of the era. IV dodges this by construction: the
 accountable humans own the firm that owns the factory.
 
-## 6. The failure mode: losing the meta-tacit
+## 6. The disintermediation test
+
+Section 4 argues the supply side: accountability is the scarce input.
+The demand-side dual must also hold: granted that someone must sign,
+why pay *this* provider rather than rent the same agents and
+internalize? Every knowledge-work relationship — firm-to-client,
+professional-to-patron, employee-to-employer — now faces this
+**disintermediation test**. (The IV-specific version and its answers:
+`iv-business-model.md` §3.1.)
+
+Three answers generalize:
+
+1. **Agents commoditize generation, not verification.** Renting agents
+   gives the buyer cheap production and a *larger* verification
+   burden — §4 restated from the buyer's side. Whoever's value was
+   execution is disintermediated; whoever's value is the verification
+   apparatus is strengthened by the same force.
+2. **Self-attestation is structurally worthless to counterparties.**
+   Second opinions, external audits, peer review, and licensed
+   sign-offs exist because an interior cannot attest to itself.
+   Renting agents changes the cost of producing an assertion, not
+   whose name makes it credible. This holds wherever output faces a
+   third party.
+3. **The N-case flywheel is unavailable to any single-buyer
+   interior.** A specialist across N clients accumulates validated
+   edge cases; agents can regenerate methodology but not the
+   validation corpus. This is why the §5 equilibrium is stable as
+   specialist firms selling attested artifacts, rather than every
+   buyer running everything in-house — and why it systematically
+   favors external specialists over internal staff, who see one book
+   by definition.
+
+### 6.1 The employee asymmetry
+
+Run the test for an individual employee and most defenses fail: the
+employer needs no external attestation for internal work
+(self-attestation to management is fine); the employee sees one
+employer's cases (no flywheel); and IP assignment hands the employer
+the codified methodology (no boundary moat — the "whose factory"
+conflict of §5). Only the verification-burden argument and meta-tacit
+judgment (§7) survive.
+
+So the sharper form of §3's labor claim: **the individual's defensible
+positions are (a) being the accountable signer in a
+counterparty-facing role — officer, licensed professional, the person
+the regulator names — or (b) owning a boundary, i.e., the firm.** Pure
+internal expertise, however excellent and agent-amplified, is the
+weakly defended position: its codification is owned by the employer
+and its outputs need no external signature.
+
+### 6.2 Where the structure does not apply
+
+The whole argument assumes **credence goods facing third parties**. It
+fails where knowledge work is (a) cheaply verifiable by the buyer on
+receipt — the verification burden collapses; (b) consumed purely
+internally with no counterparty — no attestation demand; or (c) valued
+for taste or identity rather than correctness — content and
+entertainment buy the voice, not the assurance. The safe harbors of
+the era are not where work is hardest but where these conditions
+break.
+
+## 7. The failure mode: losing the meta-tacit
 
 Codifying tacit knowledge does not drain the tacit pool — it moves it
 up a level. What must remain tacit in the signer: knowing when the
@@ -146,14 +221,19 @@ it is depreciation of the firm's core asset. For IV this argues for
 humans periodically re-performing audits by hand — not because agents
 cannot, but to keep the signature real.
 
-## 7. Compressed
+## 8. Compressed
 
 AI forces knowledge workers to codify their tacit knowledge (to get
 leverage) at the exact moment codification becomes maximally dangerous
 (anything explicit is copyable). The publication boundary is the
 general resolution: factory inside, signature outside, methodology
 never crossing. Scarcity migrates to accountability because
-skin-in-the-game is the one unrentable input. The economy reorganizes
-into a DAG of such boundaries — and the residual human asset is
-meta-tacit judgment, which must be actively maintained or the
+skin-in-the-game is the one unrentable input. Buyers still pay
+particular providers because generation is rentable but verification
+is not, self-attestation is worthless to counterparties, and the
+N-case flywheel accrues only to specialists — so the economy
+reorganizes into a DAG of such boundaries (as mortgage finance already
+did, a century early), defensible individual positions reduce to
+holding a signature or owning a boundary, and the residual human asset
+is meta-tacit judgment, which must be actively maintained or the
 signature hollows.

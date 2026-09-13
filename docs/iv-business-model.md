@@ -298,6 +298,10 @@ compounding N-book assurance apparatus and a signer your reviewers
 accept; and consuming our product will never teach you to replicate
 it."**
 
+The objection and its answers generalize beyond IV to all AI-era
+knowledge work — see `knowledge-work-and-publication-boundaries.md`
+§6, "The disintermediation test."
+
 ### 3.2 The industry already outsources attestation by default
 
 Mortgage finance long ago decomposed into specialist attestation
