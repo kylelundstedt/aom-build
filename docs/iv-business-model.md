@@ -300,7 +300,14 @@ it."**
 
 The objection and its answers generalize beyond IV to all AI-era
 knowledge work — see `knowledge-work-and-publication-boundaries.md`
-§6, "The disintermediation test."
+§6, "The disintermediation test." Its §6.3 works the test through a
+mid-size mortgage lender and lands on the same segmentation from the
+other side: the post-AI IMB keeps relationships, risk decisions with
+skin, its R&W signature and control apparatus, and vendor
+orchestration — and buys attested boundaries for the rest. Its own
+origination data exhaust is worthless as idiosyncratic Encompass
+extracts but valuable as an attested, comparable OriginatorVault: a
+boundary it should buy, not build.
 
 ### 3.2 The industry already outsources attestation by default
 

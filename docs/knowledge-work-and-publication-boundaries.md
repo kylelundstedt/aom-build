@@ -203,6 +203,71 @@ entertainment buy the voice, not the assurance. The safe harbors of
 the era are not where work is hardest but where these conditions
 break.
 
+### 6.3 Worked example: the mid-size mortgage lender
+
+Apply the test to an independent mortgage bank (IMB) — a firm that is
+already mostly boundary network — and ask what it should do internally
+when agents commoditize its labor.
+
+First, what an IMB actually sells: not loans as manufactured objects
+but **signed loans**. Delivery to a GSE or aggregator is an attested
+artifact — the file plus reps and warrants, backed by buyback
+liability. The investor does not re-underwrite every file precisely
+because the lender's signature has skin behind it. The IMB is itself
+an assurance firm: interior = loan manufacturing; published artifact =
+the saleable loan under R&W.
+
+Running the test across its functions:
+
+**Correctly external, permanently.** Title, flood, credit, MI,
+appraisal, doc custody, often subservicing: each is a specialist with
+an N-flywheel the lender can never match, and some are mandated
+external — appraisal-independence rules literally encode "you cannot
+attest to yourself." No amount of rented agents changes these.
+
+**The contested middle: fulfillment labor.** Processing, underwriting
+grunt work, closing prep, post-close stacking are WRITE, and agents
+commoditize them — whether the lender's agents or a vendor's. But the
+signature does not transfer: fulfillment vendors disclaim, and the
+R&W stays with the lender no matter who touched the file. You can
+rent the WRITE; you cannot rent away the AUDIT obligation. The
+equilibrium: **rent or automate the production; own the controls.**
+The ops organization shrinks into control design, sampling, and
+exception handling.
+
+**The irreducible internal core:**
+
+1. **The credit decision as policy, and its exceptions.** Delegated
+   underwriting authority is the franchise; the credit box, overlays,
+   and exception judgment are the signature content plus the
+   meta-tacit (§7) that keeps the R&W signable.
+2. **Pricing, margin, and hedge decisions.** Balance-sheet skin —
+   definitionally unrentable. The industry already splits this
+   correctly: hedge *analytics* outsourced, hedge *decisions*
+   in-house.
+3. **The borrower and referral relationship.** The lender's
+   proprietary N and its actual flywheel — and largely a trust/taste
+   good (§6.2) where assurance logic does not govern.
+4. **Control design and vendor oversight.** The turtles bottom out
+   here: regulators and GSEs hold the lender accountable for its
+   vendors, so everything can be outsourced *except the oversight of
+   the outsourcers*. Orchestrating the boundary network — choosing
+   attestors, verifying their attestations, assembling them into a
+   signable whole — is irreducible by construction: pushing it out
+   just creates a new vendor needing the same oversight. The
+   recursion terminates at whoever holds the liability.
+5. **Compliance posture and officer signatures.** Monitoring tooling
+   is rentable; the named individuals a regulator can reach are not.
+
+Compressed: the post-AI IMB collapses to **relationships, risk
+decisions with skin, the R&W signature and its control apparatus, and
+orchestration of the boundary network**. The fulfillment middle
+evaporates — not to in-place automation but into the boundary
+network. This also instantiates the employee asymmetry (§6.1) with a
+concrete population: the mid-level fulfillment professional holds
+neither signature nor boundary — the weakly defended position,
+staffed by thousands.
+
 ## 7. The failure mode: losing the meta-tacit
 
 Codifying tacit knowledge does not drain the tacit pool — it moves it
