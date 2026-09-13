@@ -39,6 +39,30 @@ Four claims carry the model:
    publication boundary is not good architecture — it is the
    precondition for the business existing** (§2.4).
 
+### 1.1 Why accounting, not manufacturing
+
+A manufacturing analogy fits the production interior well — ADR 0007
+already calls it a factory, the Product DAG is a bill of materials,
+the release tuple is lot genealogy, and controls-based trust (§4.1) is
+statistical process control. Use that vocabulary freely for
+architecture and operations.
+
+But manufacturing fails as the *business* frame. Data is a **credence
+good**: unlike a widget, the buyer cannot cheaply assess its fitness
+even after use, so demand rests on assurance economics — verification
+transfer, signaling, recourse, standards (§3) — for which
+manufacturing has no story. Data's ~zero marginal reproduction cost
+makes per-unit manufacturing pricing intuitions wrong. And the central
+human role, the accountable signer, has no manufacturing equivalent:
+nobody buys a widget because of who signed the QC report.
+
+The decisive distinction: **a factory's quality process is invisible
+to the widget buyer; IV's controls and evidence ship with every
+release as the product surface.** When the quality process is what the
+customer buys, the firm is an assurance firm that runs a factory — not
+a manufacturer with a QA department. The frames compose: manufacturing
+inside the boundary, accounting at and beyond it.
+
 ## 2. The product line: three economic layers
 
 ``` text
