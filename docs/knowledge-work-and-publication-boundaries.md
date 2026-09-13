@@ -32,7 +32,8 @@ Key sections of the full essay, for citation from this repo:
 - **§3 Precedents** — guilds, professions, industrialization, and
   mortgage finance as the living existence proof.
 - **§4.2 The disintermediation test** — the generalized form of
-  `iv-business-model.md` §3.1's internalization objection; flywheel as
+  the business model's internalization objection (iv-docs
+  `drafts/iv-business-model.md` §3.1); flywheel as
   epistemic *and* incentive asset (Diamond).
 - **§5 Individuals** — defensible positions reduce to signature or
   boundary.

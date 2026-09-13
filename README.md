@@ -13,7 +13,7 @@ Entire checkpoints.
 1. [`docs/architecture-contract.md`](docs/architecture-contract.md) — binding architectural constraints.
 2. [`docs/hermes-scarf-pilot.md`](docs/hermes-scarf-pilot.md) — current execution plan.
 3. [`docs/iv-agent-operating-model.md`](docs/iv-agent-operating-model.md) — full architecture and rationale.
-4. [`docs/iv-business-model.md`](docs/iv-business-model.md) — business framing: IV as an assurance firm for data products.
+4. [`docs/iv-business-model.md`](docs/iv-business-model.md) — AOM companion stub; full business model doctrine lives in the `iv-docs` repo (`drafts/iv-business-model.md`).
 5. [`docs/knowledge-work-and-publication-boundaries.md`](docs/knowledge-work-and-publication-boundaries.md) — essay stub: summary and section map; canonical essay lives in the `thoughts` (lundstedt.us) repo.
 
 When they differ, the Architecture Contract constrains the pilot plan.
